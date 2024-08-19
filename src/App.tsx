@@ -1,6 +1,10 @@
 import { ChevronDown, FileText, Github, Linkedin } from 'lucide-react'
 import { Button } from './components/Button'
 import Ashmi from './assets/ashmi.jpeg'
+import AshmiWorking from './assets/ashmi_working.jpeg'
+
+import WorkExCard from './components/WorkExCard'
+import { WorkExData } from './data/Work'
 
 function App() {
 
@@ -45,9 +49,42 @@ function App() {
 
 
       <div className='h-screen'>
-        <div className='text-center'>
-          <h2>Achievements</h2>
+        <div className='text-center mt-10'>
+          <h1>Work Experience</h1>
+          <div className='grid grid-cols-2 gap-4 mt-5'>
+            
+            <div className='p-10'>
+              <img src={AshmiWorking} className='mb-3 w-3/4 rounded-xl shadow-lg mx-auto'></img>
+            </div>
+            <div className='p-10'>
+              {WorkExData && WorkExData.map(workEx => (
+                  <WorkExCard name={workEx.name} description={workEx.description} technologies={workEx.technologies} role={workEx.role} />
+              ))}
+            </div>
+
+          </div>
+
         </div>
+
+      </div>
+
+      <div className='h-screen'>
+        <div className='text-center mt-10'>
+          <h1>Acheivements</h1>
+          <div className='grid grid-cols-1'>
+            
+            
+            <div className='p-10'>
+              {WorkExData && WorkExData.map(workEx => (
+                  <WorkExCard name={workEx.name} description={workEx.description} technologies={workEx.technologies} role={workEx.role} />
+              ))}
+            </div>
+
+
+          </div>
+
+        </div>
+
       </div>
 
       </div>
